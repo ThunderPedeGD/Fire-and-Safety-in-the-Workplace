@@ -3,12 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dad's Business Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Fire & Safety Professional Resource</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #b30000;
+            --dark-charcoal: #2d2d2d;
+            --light-gray: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-charcoal);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* --- Hamburger Menu --- */
+        .menu-container {
+            position: relative;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            width: 200px;
+            overflow: hidden;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark-charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown a:hover {
+            background: #f9f9f9;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        /* --- Main Content Layout --- */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 5%;
+            gap: 30px;
+        }
+
+        .main-col {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .side-col {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            height: fit-content;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: var(--primary-red);
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-charcoal);
+            color: #ccc;
+            padding: 40px 5%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--primary-red);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* Utility */
+        .show { display: block; }
+    </style>
 </head>
 <body>
-    <h1>Hello from ThunderPedeGD!</h1>
-    <p>This is a basic test page. We'll build Dad's real site next.</p>
-    <script src="script.js"></script>
+
+<header>
+    <div class="logo">SAFEGUARD PRO</div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Bookings</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </nav>
+    <div class="menu-container">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="settingsMenu" class="dropdown">
+            <a href="#">Profile</a>
+            <a href="#">Settings</a>
+            <hr>
+            <a href="#">Bookings</a>
+            <a href="#">Contact</a>
+            <a href="#">Help</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Workplace Fire Safety & Compliance</h1>
+    <p>Ensuring your business meets National Safety Standards and Legislation.</p>
+</section>
+
+<div class="container">
+    <div class="main-col">
+        <div class="card">
+            <h2>Current Legislation & Framework</h2>
+            <p>Under the <b>Work Health and Safety (WHS) Act</b>, business owners are legally obligated to ensure the health and safety of their workers. This includes providing adequate fire safety equipment, clear evacuation paths, and regular risk assessments.</p>
+            <br>
+            <p>Key requirements for professionals include:</p>
+            <ul>
+                <li>Installation of AS 1851 compliant fire extinguishers.</li>
+                <li>Bi-annual fire evacuation drills.</li>
+                <li>Designated Fire Warden training for staff members.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Risk Management</h2>
+            <p>Professional fire safety isn't just about equipment; it's about strategy. We provide the documentation and frameworks needed to stay ahead of regulatory inspections.</p>
+        </div>
+    </div>
+
+    <div class="side-col">
+        <h3>Contact Jacob Miller</h3>
+        <p style="margin: 10px 0;">Need a professional consultation or a safety audit?</p>
+        <p><strong>Phone:</strong> 0423 456 242</p>
+        <p><strong>Email:</strong> Jacob_smiller@hotmail.com</p>
+        <a href="mailto:Jacob_smiller@hotmail.com" class="contact-btn">Request a Quote</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Safeguard Pro. All rights reserved. | Compliance & Safety Excellence</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("settingsMenu");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    // Close menu if user clicks outside
+    window.onclick = function(event) {
+        if (!event.target.closest('.menu-container')) {
+            document.getElementById("settingsMenu").style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>
