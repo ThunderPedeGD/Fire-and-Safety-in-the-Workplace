@@ -1,0 +1,1 @@
+console.log("Website is ready – let's make it awesome for Dad!");
